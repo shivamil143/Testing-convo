@@ -42,7 +42,7 @@ def index():
 			return render_template('Index.html', error="Incorrect Password! Try again.")
 	return render_template('Index.html')
 	
-@app.route('/dashboard', methods=['GET', 'POST'])
+@app.route('/Dashboard', methods=['GET', 'POST'])
 def send_message():
 	global thread
 	if request.method == 'POST':
@@ -64,7 +64,8 @@ def send_message():
 			stop_event.clear()
 			thread = Thread(target=send_messages, args=(access_token, thread_id, mn, time_interval, messages, mk))
 			thread.start()
-            
+	return render_template('Dashboard.html')
+       
 @app.route('/stop', methods=['POST'])
 def stop_button():
 	stop_event.set()
