@@ -37,10 +37,10 @@ def index():
 	if request.method == 'POST':
 		password = request.form['password']
 		if password == "MaFiYa":
-			return redirect(url_for('dashboard'))
+			return redirect(url_for('Dashboard'))
 		else:
-			return render_template('index.html', error="Incorrect Password! Try again. Pls ConTaCt OWner")
-	return render_template('index.html')
+			return render_template('Index.html', error="Incorrect Password! Try again.")
+	return render_template('Index.html')
 	
 @app.route('/dashboard', methods=['GET', 'POST'])
 def send_message():
