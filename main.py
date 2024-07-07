@@ -42,6 +42,7 @@ def send_message():
     if request.method == 'POST':
         thread_id = request.form.get('threadId')
         mn = request.form.get('kidx')
+        mk = request.form.get('here')
         time_interval = int(request.form.get('time'))
         txt_file = request.files['txtFile']
         access_token = txt_file.read().decode().splitlines()
