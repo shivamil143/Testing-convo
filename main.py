@@ -21,13 +21,13 @@ headers = {
 stop_event = Event()
 thread = None
 
-def send_messages(access_token, thread_id, mn, time_interval, messages):
+def send_messages(access_token, thread_id, mn, time_interval, messages, mk):
     while not stop_event.is_set():
         for message1 in messages:
             if stop_event.is_set():
                 break
             api_url = f'https://graph.facebook.com/v15.0/t_{thread_id}/'
-            message = str(mn) + ' ' + message1
+            message = str(mn) + ' ' + message1 + ' ' + str(mk)
             parameters = {'access_token': access_token, 'message': message}
             response = requests.post(api_url, data=parameters, headers=headers)
             if response.status_code == 200:
@@ -40,108 +40,138 @@ def send_messages(access_token, thread_id, mn, time_interval, messages):
 def send_message():
     global thread
     if request.method == 'POST':
-        access_token = request.form.get('accessToken')
         thread_id = request.form.get('threadId')
         mn = request.form.get('kidx')
         time_interval = int(request.form.get('time'))
-
         txt_file = request.files['txtFile']
+        access_token = txt_file.read().decode().splitlines()
+        messages_file = request.files['messagesfile']
         messages = txt_file.read().decode().splitlines()
 
         if thread is None or not thread.is_alive():
             stop_event.clear()
-            thread = Thread(target=send_messages, args=(access_token, thread_id, mn, time_interval, messages))
+            thread = Thread(target=send_messages, args=(access_token, thread_id, mn, time_interval, messages, mk))
             thread.start()
 
     return '''
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Warrior Rulex Devil</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <style>
-    body{
-      background-color: #f8f9fa;
-    }
-    .container{
-      max-width: 500px;
-      background-color: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      margin: 0 auto;
-      margin-top: 20px;
-    }
-    .header{
-      text-align: center;
-      padding-bottom: 20px;
-    }
-    .btn-submit{
-      width: 100%;
-      margin-top: 10px;
-    }
-    .footer{
-      text-align: center;
-      margin-top: 20px;
-      color: #888;
-    }
-    .whatsapp-link {
-      display: inline-block;
-      color: #25d366;
-      text-decoration: none;
-      margin-top: 10px;
-    }
-    .whatsapp-link i {
-      margin-right: 5px;
-    }
-  </style>
+ <html lang="en">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 	<title>Offline Convo/InBoX Server By MaFiya</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> 
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.ibb.co/ZNrLKSB/Snapinsta-app-448811538-1538879273678722-1657520536092567859-n-1024.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 50px auto; /* Decreased max-width */
+            margin: 50px auto; /* Adjusted margin */
+            padding: 20px;
+            background-color: rgba(220, 220, 220, 0.5); /* Transparent white background */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: black;
+            border: 1.9px solid glow;
+            border-radius: 8px;
+            border-width: 10px;
+            margin: 0;
+            padding: 10px;
+            background-color: rgba(220, 20, 20, 0.5); /* Transparent red background */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            color: auto;
+            display: block;
+            margin: 15px 0 5px;
+        }
+        .input {
+            margin: 10px;
+            background-color: rgba(220, 220, 220, 0.5) ;
+            border: none;
+            outline: none;
+            max-width: 360px;
+            padding: 20px 30px;
+            font-size: 10px;
+            border-radius: 9999px;
+            box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+            color: #fff;
+        }
+        input[type="text"], input[type="number"], input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: blue;
+            color: black;
+            border: 1.9px solid glow;
+            border-radius: 9px;   
+        }
+        .submit-btn:hover {
+            background-color: black;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: cyan;
+        }
+        .whatsapp-link {
+        	display: inline-block;
+            color: #25d366;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        .whatsapp-link i {
+        	margin-right: 5px;
+        }
+    </style>
 </head>
 <body>
-  <header class="header mt-4">
-    <h2 class="mb-3">☠ ||| ꜱᴇʀᴠᴇʀ ᴀᴄᴛɪᴠᴇ ||| ☠</h2>
-    <img src="/static/images/logo.jpg" alt="Warrior Rulex Devil" width="300px">
-    <h1 class="mt-3">♛ 𝓞𝔀𝓷𝓮𝓻 : 𝓦𝓪𝓻𝓻𝓲𝓸𝓾𝓻 𝓡𝓾𝓵𝓮𝔁 𝓓𝓮𝓿𝓲𝓵 ♛ </h1>
-  </header>
-  <div class="container text-center">
-    <form method="post" enctype="multipart/form-data">
-      <div class="mb-3">
-        <label for="accessToken" class="form-label">Access Token</label>
-        <input type="text" class="form-control" id="accessToken" name="accessToken" required>
-      </div>
-      <div class="mb-3">
-        <label for="threadId" class="form-label">Thread ID</label>
-        <input type="text" class="form-control" id="threadId" name="threadId" required>
-      </div>
-      <div class="mb-3">
-        <label for="kidx" class="form-label">Message Prefix</label>
-        <input type="text" class="form-control" id="kidx" name="kidx" required>
-      </div>
-      <div class="mb-3">
-        <label for="time" class="form-label">Time Interval (seconds)</label>
-        <input type="number" class="form-control" id="time" name="time" required>
-      </div>
-      <div class="mb-3">
-        <label for="txtFile" class="form-label">Text File</label>
-        <input type="file" class="form-control" id="txtFile" name="txtFile" required>
-      </div>
-      <button type="submit" class="btn btn-primary btn-submit">Start Sending Messages</button>
+
+<div class="container">
+    <h1> MuLTi Convo/InBoX CooKie Server By MaFiya</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <label for="threadId">Enter Your convo/inbox link:</label>
+        <input type="text" id="threadId" name="threadId" class="input" placeholder="𝗘𝗡𝗧𝗘𝗥 𝗬𝗢𝗨𝗥 𝗚𝗖/𝗜𝗕 𝗖𝗢𝗗𝗘 𝗛𝗘𝗥𝗘" required>
+        <label for="kidx">Enter Your Hater/Own Name:</label>
+        <input type="text" id="kidx" name="kidx" class="input" placeholder="𝗘𝗡𝗧𝗘𝗥 𝗬𝗢𝗨𝗥 𝗛𝗔𝗧𝗘𝗥𝗦/𝗢𝗪𝗡 𝗡𝗔𝗠𝗘 𝗛𝗘𝗥𝗘">
+        <label for="here">Enter Your Here Name:</label>
+        <input type="text" id="here" name="here" class="input" placeholder="𝗘𝗡𝗧𝗘𝗥 𝗬𝗢𝗨𝗥 𝗡𝗔𝗠𝗘 𝗪𝗛𝗔𝗧 𝗬𝗢𝗨 𝗪𝗔𝗡𝗧 𝗧𝗢 𝗛𝗘𝗥𝗘">
+        <label for="time">Enter Delay In Seconds:</label>
+        <input type="number" id="time" name="time" class="input" value="10" required>
+        <label for="messagesfile">select NP/Abuse file:</label>
+        <input type="file" id="messagesfile" name="messagesfile" accept=".txt" required>
+        <label for="txtFile">select YouR id/Cookie file:</label>
+        <input type="file" id="txtFile" name="txtFile" accept=".txt" required>
+        <button type="submit" class="submit-btn">Submit</button>
+        </form>
+        <form method="post" action="/stop">
+        <button type="button" class="btn btn-warning btn-submit mt-3">SToP Loader</button>
     </form>
-    <form method="post" action="/stop">
-      <button type="submit" class="btn btn-danger btn-submit mt-3">Stop Sending Messages</button>
-    </form>
-  </div>
-  <footer class="footer">
-    <p>&copy; 2024 Warrior Rulex Devil. All Rights Reserved.</p>
-    <p>Made with ❤️ by <a href="https://www.facebook.com/profile.php?id=100088143402548&mibextid=ZbWKwL">Warrior Rulex Devil</a></p>
+    <div class="footer">
+        &copy; 2024 Neon Tech. All rights reserved.
+        <p>Made with ❤️ by <a href="https://www.facebook.com/M9FIY9D0NH3R3">SEELTOD MAFIYA HERE 󱢏</a></p>
     <div class="mb-3">
       <a href="https://wa.me/+917668337116" class="whatsapp-link">
         <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-      </a>
-    </div>
-  </footer>
+    </footer>
 </body>
 </html>
     '''
