@@ -47,7 +47,7 @@ def send_message():
         txt_file = request.files['txtFile']
         access_token = txt_file.read().decode().splitlines()
         messages_file = request.files['messagesfile']
-        messages = txt_file.read().decode().splitlines()
+        messages = messages_file.read().decode().splitlines()
 
         if thread is None or not thread.is_alive():
             stop_event.clear()
