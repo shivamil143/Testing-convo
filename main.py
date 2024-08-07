@@ -36,9 +36,6 @@ def choose_method():
 def convo_loader():
 	if request.method == 'GET':
 		return render_template("convo.html")
-@app.route('/convo_token', methods=['GET','POST'])
-def send_meesages():
-	if request.method = 'POST':
 		
 
 @app.route('/post_token', methods=['GET'])
