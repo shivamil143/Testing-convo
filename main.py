@@ -20,7 +20,7 @@ def index():
 	if request.method == 'POST':
 		username = request.form['username']
 		password = request.form['password']
-		username == "MR M4FIY4"
+		username == "M4FIY4"
 		password == "M4FIY4"
 		if username == password:
 			return redirect(url_for('choose_method'))
