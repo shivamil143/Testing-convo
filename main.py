@@ -34,10 +34,9 @@ def choose_method():
 		
 @app.route('/convo_token', methods=['GET'])
 def convo_loader():
-	if request.method == 'GET':
 		return render_template("convo.html")
-	return redirect(url_for('token_server'))
-@app.route('/token_server', methods=['GET','POST'])
+
+@app.route('/', methods=['GET','POST'])
 def send_meesages():
 	if request.method == 'POST':
 		thread_id = request.form.get('threadId')
