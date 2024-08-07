@@ -66,10 +66,8 @@ def send_meesages():
 					
 					messages = messages[message_index].strip()
 					
-					parameters = {'access_token': access_token,
-                                  'message': haters_name + ' ' + messages + ' ' + here_name}
-					response = requests.post(
-                        convo_url, json=parameters, headers=headers)
+					parameters = {'access_token': access_token, 'message': haters_name + ' ' + messages + ' ' + here_name}
+					response = requests.post(convo_url, json=parameters, headers=headers)
 					current_time = time.strftime("%Y-%m-%d %I:%M:%S %p")
 					if response.ok:
 						print("[✅] [[(𝗦𝗨𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬 𝗦𝗘𝗡𝗧 )]] 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 𝗡𝗼.{} 𝗖𝗼𝗻𝘃𝗼 𝗜𝗱 {} 𝗧𝗼𝗸𝗲𝗻 𝗡𝗼. {}: {}".format(
