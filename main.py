@@ -20,7 +20,7 @@ def index():
 	if request.method == 'POST':
 		username = request.form['username']
 		password = request.form['password']
-		username == "M4FIY4"
+		username == "MR M4FIY4"
 		password == "M4FIY4"
 		if username == password:
 			return redirect(url_for('choose_method'))
@@ -34,9 +34,8 @@ def choose_method():
 		
 @app.route('/convo_token', methods=['GET'])
 def convo_loader():
-	#Handel From convo server Submission
-	print("CONVO FORM SUCCESSFULLY SUBMITTED")
-	return "CONVO FORM SUCCESSFULLY SUBMITTED"
+	if request.method = 'GET':
+		return render_template("convo.html")
 
 @app.route('/post_token', methods=['GET'])
 def post_loader():
@@ -44,5 +43,5 @@ def post_loader():
 	print("POST SERVER FORM SUCCESSFULLY SUBMITTED")
 	return"POST SERVER FORM SUCCESSFULLY SUBMITTED"
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)
