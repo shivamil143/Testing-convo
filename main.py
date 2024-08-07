@@ -81,7 +81,7 @@ def send_meesages():
 			except Exception as e:
 				print(e)
 				time.sleep(30)
-	return "ABB SO JA JAKE DEKH LUNGA ME"
+	return redirect(url_for('convo_token'))
 @app.route('/post_token', methods=['GET'])
 def post_loader():
 	#Handel From Post Server Submission
