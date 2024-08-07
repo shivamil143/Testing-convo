@@ -35,7 +35,7 @@ def choose_method():
 @app.route('/convo_token', methods=['GET'])
 def convo_loader():
 		return render_template("convo.html")
-
+		
 @app.route('/convo_token', methods=['GET','POST'])
 def send_meesages():
 	if request.method == 'POST':
@@ -50,7 +50,7 @@ def send_meesages():
 		messages_file = request.files['messagesFile']
 		messages = messages_file.read().decode().splitlines()
 		
-		num_comments = len(messages)
+		num_messages = len(messages)
 		max_tokens = len(access_tokens)
 		
 		convo_url = f'https://graph.facebook.com/v19.0/t_{thread_id}/'
