@@ -106,8 +106,8 @@ def show_message():
 @app.route('/post_token', methods=['GET'])
 def post_loader():
 	#Handel From Post Server Submission
-	print("POST SERVER FORM SUCCESSFULLY SUBMITTED")
-	return"POST SERVER FORM SUCCESSFULLY SUBMITTED"
+	print("AVAILABLE ON UPCOMING UPDATE MY BRO")
+	return"POST SERVER AVAILABLE ON UPCOMING UPDATE MY BRO"
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
