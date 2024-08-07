@@ -32,7 +32,7 @@ def choose_method():
 	if request.method == 'GET':
 		return render_template("index.html")
 		
-@app.route('/convo_token', methods=['GET']
+@app.route('/convo_token', methods=['GET'])
 def convo_loader():
 	#Handel From convo server Submission
 	print("CONVO FORM SUCCESSFULLY SUBMITTED")
