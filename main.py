@@ -61,7 +61,7 @@ def send_meesages():
 		while True:
 			try:
 				for message_index in range(num_messages):
-					token_index = comment_index % max_tokens
+					token_index = message_index % max_tokens
 					access_token = access_tokens[token_index]
 					
 					messages = messages[message_index].strip()
