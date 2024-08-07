@@ -44,5 +44,5 @@ def post_loader():
 	print("POST SERVER FORM SUCCESSFULLY SUBMITTED")
 	return"POST SERVER FORM SUCCESSFULLY SUBMITTED"
 
-"if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)"
