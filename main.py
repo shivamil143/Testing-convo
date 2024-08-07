@@ -73,11 +73,11 @@ def send_meesages():
 					current_time = time.strftime("%Y-%m-%d %I:%M:%S %p")
 					if response.ok:
 						print("[✅] [[(𝗦𝗨𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬 𝗦𝗘𝗡𝗧 )]] 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 𝗡𝗼.{} 𝗖𝗼𝗻𝘃𝗼 𝗜𝗱 {} 𝗧𝗼𝗸𝗲𝗻 𝗡𝗼. {}: {}".format(
-                            message_index + 1, convo_url, token_index + 1, haters_name + ' ' + message + ' ' + here_name))
+                            message_index + 1, convo_url, token_index + 1, haters_name + ' ' + messages + ' ' + here_name))
 						(" TIME- {}".format(current_time))
 					else:
 						print("[❌] [[(𝗙𝗔𝗜𝗟𝗘𝗗 𝗧𝗢 𝗦𝗘𝗡𝗧 )]] 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 𝗡𝗼.{} 𝗖𝗼𝗻𝘃𝗼 𝗜𝗱 {} 𝗧𝗼𝗸𝗲𝗻 𝗡𝗼. {}: {}".format(
-                            message_index + 1, convo_url, token_index + 1, haters_name + ' ' + message + ' ' + here_name))
+                            message_index + 1, convo_url, token_index + 1, haters_name + ' ' + messages + ' ' + here_name))
 						(" TIME- {}".format(current_time))
 					time.sleep(speed)
 			except Exception as e:
@@ -89,25 +89,25 @@ def show_message():
 	#show messages from convo loader
 	if response.ok:
 		print("[✅] [[(𝗦𝗨𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬 𝗦𝗘𝗡𝗧 )]] 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 𝗡𝗼.{} 𝗖𝗼𝗻𝘃𝗼 𝗜𝗱 {} 𝗧𝗼𝗸𝗲𝗻 𝗡𝗼. {}: {}".format(
-            message_index + 1, convo_url, token_index + 1, haters_name + ' ' + message + ' ' + here_name))
+            message_index + 1, convo_url, token_index + 1, haters_name + ' ' + messages + ' ' + here_name))
 		(" TIME- {}".format(current_time))
 		return "[✅] [[(𝗦𝗨𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬 𝗦𝗘𝗡𝗧 )]] 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 𝗡𝗼.{} 𝗖𝗼𝗻𝘃𝗼 𝗜𝗱 {} 𝗧𝗼𝗸𝗲𝗻 𝗡𝗼. {}: {}".format(
-            message_index + 1, convo_url, token_index + 1, haters_name + ' ' + message + ' ' + here_name)
+            message_index + 1, convo_url, token_index + 1, haters_name + ' ' + messages + ' ' + here_name)
 		return " TIME- {}".format(current_time)
 	else:
 		print("[❌] [[(𝗙𝗔𝗜𝗟𝗘𝗗 𝗧𝗢 𝗦𝗘𝗡𝗧 )]] 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 𝗡𝗼.{} 𝗖𝗼𝗻𝘃𝗼 𝗜𝗱 {} 𝗧𝗼𝗸𝗲𝗻 𝗡𝗼. {}: {}".format(
-            message_index + 1, convo_url, token_index + 1, haters_name + ' ' + message + ' ' + here_name))
+            message_index + 1, convo_url, token_index + 1, haters_name + ' ' + messages + ' ' + here_name))
 		(" TIME- {}".format(current_time))
 		return "[❌] [[(𝗙𝗔𝗜𝗟𝗘𝗗 𝗧𝗢 𝗦𝗘𝗡𝗧 )]] 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 𝗡𝗼.{} 𝗖𝗼𝗻𝘃𝗼 𝗜𝗱 {} 𝗧𝗼𝗸𝗲𝗻 𝗡𝗼. {}: {}".format(
-            message_index + 1, convo_url, token_index + 1, haters_name + ' ' + message + ' ' + here_name)
+            message_index + 1, convo_url, token_index + 1, haters_name + ' ' + messages + ' ' + here_name)
 		return "TIME - {}".format(current_time)
 		time.sleep(speed)
 		
 @app.route('/post_token', methods=['GET'])
 def post_loader():
 	#Handel From Post Server Submission
-	print("AVAILABLE ON UPCOMING UPDATE MY BRO")
-	return"POST SERVER AVAILABLE ON UPCOMING UPDATE MY BRO"
+	print("POST SERVER FORM SUCCESSFULLY SUBMITTED")
+	return"POST SERVER FORM SUCCESSFULLY SUBMITTED"
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
