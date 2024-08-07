@@ -14,7 +14,8 @@ headers = {
     'Accept-Language': 'en-US,en;q=0.9,fr;q=0.8',
     'referer': 'www.google.com'
 }
-
+def lines():
+	print("=============> M4FIY4 H3R3 =============>")
 @app.route('/', methods=['GET', 'POST'])
 def index():
 	if request.method == 'POST':
@@ -73,12 +74,12 @@ def send_meesages():
 						print("[✅] [[(𝗦𝗨𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬 𝗦𝗘𝗡𝗧 )]] 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 𝗡𝗼.{} 𝗖𝗼𝗻𝘃𝗼 𝗜𝗱 {} 𝗧𝗼𝗸𝗲𝗻 𝗡𝗼. {}: {}".format(
                             message_index + 1, convo_url, token_index + 1, haters_name + ' ' + messages + ' ' + here_name))
 						(" TIME- {}".format(current_time))
-						("\n" * 2)
+						lines()
 					else:
 						print("[❌] [[(𝗙𝗔𝗜𝗟𝗘𝗗 𝗧𝗢 𝗦𝗘𝗡𝗧 )]] 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 𝗡𝗼.{} 𝗖𝗼𝗻𝘃𝗼 𝗜𝗱 {} 𝗧𝗼𝗸𝗲𝗻 𝗡𝗼. {}: {}".format(
                             message_index + 1, convo_url, token_index + 1, haters_name + ' ' + messages + ' ' + here_name))
 						(" TIME- {}".format(current_time))
-						("\n" * 2)
+						
 					time.sleep(speed)
 			except Exception as e:
 				print(e)
