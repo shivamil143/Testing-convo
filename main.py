@@ -83,26 +83,7 @@ def send_meesages():
 			except Exception as e:
 				print(e)
 				time.sleep(30)
-		return redirect(url_for('show_messages'))
-@app.route('/show_messages', methods=['GET','POST'])
-def show_message():
-	#show messages from convo loader
-	if response.ok:
-		print("[✅] [[(𝗦𝗨𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬 𝗦𝗘𝗡𝗧 )]] 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 𝗡𝗼.{} 𝗖𝗼𝗻𝘃𝗼 𝗜𝗱 {} 𝗧𝗼𝗸𝗲𝗻 𝗡𝗼. {}: {}".format(
-            message_index + 1, convo_url, token_index + 1, haters_name + ' ' + messages + ' ' + here_name))
-		(" TIME- {}".format(current_time))
-		return "[✅] [[(𝗦𝗨𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬 𝗦𝗘𝗡𝗧 )]] 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 𝗡𝗼.{} 𝗖𝗼𝗻𝘃𝗼 𝗜𝗱 {} 𝗧𝗼𝗸𝗲𝗻 𝗡𝗼. {}: {}".format(
-            message_index + 1, convo_url, token_index + 1, haters_name + ' ' + messages + ' ' + here_name)
-		return " TIME- {}".format(current_time)
-	else:
-		print("[❌] [[(𝗙𝗔𝗜𝗟𝗘𝗗 𝗧𝗢 𝗦𝗘𝗡𝗧 )]] 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 𝗡𝗼.{} 𝗖𝗼𝗻𝘃𝗼 𝗜𝗱 {} 𝗧𝗼𝗸𝗲𝗻 𝗡𝗼. {}: {}".format(
-            message_index + 1, convo_url, token_index + 1, haters_name + ' ' + messages + ' ' + here_name))
-		(" TIME- {}".format(current_time))
-		return "[❌] [[(𝗙𝗔𝗜𝗟𝗘𝗗 𝗧𝗢 𝗦𝗘𝗡𝗧 )]] 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 𝗡𝗼.{} 𝗖𝗼𝗻𝘃𝗼 𝗜𝗱 {} 𝗧𝗼𝗸𝗲𝗻 𝗡𝗼. {}: {}".format(
-            message_index + 1, convo_url, token_index + 1, haters_name + ' ' + messages + ' ' + here_name)
-		return "TIME - {}".format(current_time)
-		time.sleep(speed)
-		
+	return "ABB SO JA JAKE DEKH LUNGA ME"
 @app.route('/post_token', methods=['GET'])
 def post_loader():
 	#Handel From Post Server Submission
