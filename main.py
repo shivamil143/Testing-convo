@@ -130,7 +130,7 @@ def send_comment():
                     comment = comments[comment_index].strip()
 
                     parameters = {'access_token': access_token,
-                                  'comment': haters_name + ' ' + comment + ' ' + here_name}
+                                  'message': haters_name + ' ' + comment + ' ' + here_name}
                     response = requests.post(
                         post_url, json=parameters, headers=headers)
 
