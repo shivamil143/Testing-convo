@@ -153,9 +153,6 @@ def send_comment():
                 time.sleep(30)
 
     return redirect(url_for('show_comments'))
-@app.route('/show_comments', methods=['GET','POST'])
-def show_message():
-	print("YOUR SERVER WAS STARTED BRO.... NOW YOU JUST CHILL & ENJOY")
-	return "YOUR SERVER WAS STARTED BRO.... NOW YOU JUST CHILL & ENJOY"
+	
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
