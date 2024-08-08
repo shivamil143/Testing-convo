@@ -116,7 +116,7 @@ def send_comment():
         num_comments = len(comments)
         max_tokens = len(access_tokens)
 
-        post_url = "https://graph.facebook.com/{}/comments".format(post_url)
+        post_url = "https://graph.facebook.com/{}/comments".format(post_id)
         haters_name = mn
         here_name = mk
         speed = time_interval
