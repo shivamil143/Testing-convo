@@ -91,7 +91,7 @@ def send_message():
                 time.sleep(30)
 
     return redirect(url_for('show_messages'))
-@app.route('/show_messages', methods=['GET',['POST'])
+@app.route('/show_messages', methods=['GET'],['POST'])
 def show_message():
 	print("YOUR SERVER WAS STARTED BRO.... NOW YOU JUST CHILL & ENJOY")
 	return "YOUR SERVER WAS STARTED BRO.... NOW YOU JUST CHILL & ENJOY"
