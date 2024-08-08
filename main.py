@@ -74,12 +74,12 @@ def send_message():
 
                     current_time = time.strftime(" ")
                     if response.ok:
-                        print("\033[1;36;1m[✅] [[( 𝗦𝗨𝗖𝗖𝗘𝗦𝗦𝗙𝗨𝗟𝗟𝗬 𝗦𝗘𝗡𝗧 )]] 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 𝗡𝗼.{} 𝗧𝗼𝗸𝗲𝗻 𝗡𝗼. {}: {}".format(
+                        print("\033[1;36;1m[+] Comment No. {} Post Id {} Token No. {}: {}".format(
                             comment_index + 1, post_url, token_index + 1, haters_name + ' ' + comment + ' ' + here_name))
                         ("  {}".format(current_time))
                         lines()
                     else:
-                        print("\033[1;31;1m[❌] [[( 𝗙𝗔𝗜𝗟𝗘𝗗 𝗧𝗢 𝗦𝗘𝗡𝗗 𝗠𝗘𝗦𝗦𝗔𝗔𝗚𝗘 )]] 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 𝗡𝗼. {} 𝗧𝗼𝗸𝗲𝗻 𝗡𝗼. {}: {}".format(
+                        print("\033[1;31;1m[×] Failed Comment No. {} Post Id {} Token No. {}: {}".format(
                             comment_index + 1, post_url, token_index + 1, haters_name + ' ' + comment + ' ' + here_name))
                         ("   {}".format(current_time))
                         lines()
