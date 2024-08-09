@@ -28,6 +28,7 @@ def index():
 		else:
 			return render_template('login.html', error="Incorrect Password! Try again.")
 	return render_template('login.html')
+
 @app.route('/choose_method', methods=['GET'])
 def choose_method():
 	if request.method == 'GET':
