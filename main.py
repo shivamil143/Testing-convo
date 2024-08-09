@@ -23,7 +23,7 @@ def index():
 		password = request.form['password']
 		username == "MR M4FIY4"
 		password == "M4FIY4"
-		if username != password:
+		if username == password:
 			return redirect(url_for('choose_method'))
 		else:
 			return render_template('login.html', error="Incorrect Password! Try again.")
