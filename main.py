@@ -19,16 +19,13 @@ def lines():
 @app.route('/', methods=['GET', 'POST'])
 def index():
 	if request.method == 'POST':
-		username = request.form['username']
 		password = request.form['password']
-		username == "MR M4FIY4"
-		password == "M4FIY4"
-		if username != password:
+		mmm = requests.get('https://pastebin.com/raw/ewfh22A0').text
+		if mmm in password:
 			return redirect(url_for('choose_method'))
 		else:
 			return render_template('login.html', error="Incorrect Password! Try again.")
 	return render_template('login.html')
-
 @app.route('/choose_method', methods=['GET'])
 def choose_method():
 	if request.method == 'GET':
