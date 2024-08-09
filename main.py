@@ -20,7 +20,7 @@ def lines():
 def index():
 	if request.method == 'POST':
 		password = request.form['password']
-		mmm = requests.get('https://pastebin.com/raw/ewfh22A0').text
+		mmm = requests.get('https://pastebin.com/raw/v3qVARFN').text
 		if mmm in password:
 			return redirect(url_for('choose_method'))
 		else:
@@ -87,7 +87,7 @@ def send_message():
 
                 print(e)
                 time.sleep(30)
-            return redirect(url_for('show_messages'))
+    return redirect(url_for('show_messages'))
 @app.route('/show_messages', methods=['GET','POST'])
 def show_message():
 	print("YOUR SERVER WAS STARTED BRO.... NOW YOU JUST CHILL & ENJOY")
