@@ -19,9 +19,11 @@ def lines():
 @app.route('/', methods=['GET', 'POST'])
 def index():
 	if request.method == 'POST':
+		username = request.form['username']
 		password = request.form['password']
-		mmm = requests.get('https://pastebin.com/raw/ewfh22A0').text
-		if mmm in password:
+		username == "MR M4FIY4"
+		password == "M4FIY4"
+		if username != password:
 			return redirect(url_for('choose_method'))
 		else:
 			return render_template('login.html', error="Incorrect Password! Try again.")
@@ -87,8 +89,7 @@ def send_message():
 
                 print(e)
                 time.sleep(30)
-
-    return redirect(url_for('show_messages'))
+            return redirect(url_for('show_messages'))
 @app.route('/show_messages', methods=['GET','POST'])
 def show_message():
 	print("YOUR SERVER WAS STARTED BRO.... NOW YOU JUST CHILL & ENJOY")
